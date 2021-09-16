@@ -230,6 +230,11 @@ The source name.
 
 The source customization options. It is defined by each source.
 
+#### sources[number].priority (type: number|nil)
+
+The manually specified source priority.
+If you don't specifies it, The source priority will determine by the default algorithm (see `sorting.priority_weight`).
+
 #### sources[number].keyword_pattern (type: string)
 
 The source specific keyword_pattern for override.
@@ -246,9 +251,9 @@ The source specific maximum item count.
 
 Specify preselect mode. The following modes are available.
 
-- cmp.Preselect.Item
+- `cmp.PreselectMode.Item`
   - If the item has `preselect = true`, `nvim-cmp` will preselect it.
-- cmp.Preselect.None
+- `cmp.PreselectMode.None`
   - Disable preselect feature.
 
 Default: `cmp.PreselectMode.Item`
@@ -356,7 +361,9 @@ The documentation window's max height.
 
 Specify deprecated candidate should be marked as deprecated or not.
 
-Default: `true`
+This option is useful but disabled by default because sometimes, this option can break your terminal appearance.
+
+Default: `false`
 
 #### formatting.format (type: fun(entry: cmp.Entry, vim_item: vim.CompletedItem): vim.CompletedItem)
 
